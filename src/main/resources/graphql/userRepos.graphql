@@ -1,0 +1,17 @@
+query($username: String!) {
+    user(login: $username) {
+        name
+        login
+        repositories(first: 100, orderBy: {field: CREATED_AT, direction: ASC}) {
+            nodes {
+                name
+                description
+                createdAt
+                url
+                primaryLanguage {
+                    name
+                }
+            }
+        }
+    }
+}
